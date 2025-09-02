@@ -1,26 +1,28 @@
 import { createFileRoute, useParams, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTodoById } from "../../api/todoApi";
+import type { Todo } from "../../api/types";
 
 export const Route = createFileRoute("/todos/$id")({
   component: getATodo,
 });
 
-function getATodo() {
+function getATodo(): React.ReactNode {
   const params = useParams({ strict: false });
-  const id = params.id;
+  const id = Number(params.id);
 
   const {
     data: todo,
     isLoading,
     error,
-  } = useQuery({
+  } = useQuery<Todo>({
     queryKey: ["todo", id],
     queryFn: () => fetchTodoById(id),
     enabled: !!id,
   });
   if (isLoading) return <p>Loading todo...</p>;
   if (error) return <p>Failed to load todo.</p>;
+  if (!todo) return <p> todo not found.</p>;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 via-white ">
@@ -33,7 +35,7 @@ function getATodo() {
           </span>
         </p>
         <Link to="/todos">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded cursor-pointer">
             ← Back to Todos
           </button>
         </Link>

@@ -1,19 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
+import type { Todo } from "../../api/types";
+import type { TodoFormProps } from "../../api/types";
 
 export const Route = createFileRoute("/todos/createNewTodo")({
   component: TodoForm,
 });
 
-export function TodoForm({ onAddTodo }) {
-  const { register, handleSubmit, reset } = useForm();
+export function TodoForm({ onAddTodo }: TodoFormProps) {
+  const { register, handleSubmit, reset } = useForm<{ title: string }>();
 
-  const onSubmit = (data) => {
-    const newTodo = { ...data, completed: false };
+  const onSubmit = (data: { title: string }) => {
+    const newTodo: Todo = { ...data, completed: false };
     onAddTodo(newTodo); // Call parent handler
     reset(); // Clear form
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mb-4 space-y-2">
       <input
@@ -23,7 +24,7 @@ export function TodoForm({ onAddTodo }) {
       />
       <button
         type="submit"
-        className="bg-blue-500 text-white px-3 py-1 rounded"
+        className="bg-blue-500 text-white px-3 py-1 rounded cursor-pointer"
       >
         Add A Todo
       </button>

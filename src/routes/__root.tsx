@@ -10,10 +10,11 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundPage,
 });
 
-function RootComponent() {
+function RootComponent(): React.ReactNode {
   return (
     <>
       <Outlet />
     </>
   );
 }
+// ...existing code...
