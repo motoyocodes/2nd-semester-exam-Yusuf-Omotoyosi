@@ -7,7 +7,7 @@ import { ErrorBoundary } from "./routes/errorBoundary.jsx";
 
 const queryClient = new QueryClient();
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>

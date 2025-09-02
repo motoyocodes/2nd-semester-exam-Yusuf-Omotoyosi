@@ -24,7 +24,7 @@ function HomePage() {
         <p className="text-gray-600 mb-6">One step closer to done.</p>
         <button
           onClick={goToTodos}
-          className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition"
+          className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition cursor-pointer"
         >
           Go to Todos
         </button>

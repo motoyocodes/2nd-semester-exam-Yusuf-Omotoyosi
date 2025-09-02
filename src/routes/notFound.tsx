@@ -1,9 +1,16 @@
 // src/routes/not-found.jsx
 import { createRoute } from "@tanstack/react-router";
+import { Route as RootRoute } from "./__root";
 
-// attach this under your rootRoute (parent = __root__)
-export const notFoundRoute = createRoute({
+// old way without static import of RootRoute
+/*export const notFoundRoute = createRoute({
   getParentRoute: () => import("./__root").Route,
+  path: "*",
+  component: NotFoundPage,
+}); */
+
+export const notFoundRoute = createRoute({
+  getParentRoute: () => RootRoute,
   path: "*",
   component: NotFoundPage,
 });
