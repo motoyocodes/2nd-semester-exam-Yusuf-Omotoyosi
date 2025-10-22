@@ -31,8 +31,9 @@ This project is a Vue 3 application built with Vite for fast development and opt
 6. Environment-based configuration for flexibility
 7. Linting and Prettier integration for consistent code style
 8. Dynamic routing and lazy-loaded components
-9. State management using Pinia (if applicable)
-10. API integration examples and reusable hooks
+9. API integration examples and reusable hooks
+10. Authentication
+11. OpenAI integration
 
 ## Tech Stack
 
