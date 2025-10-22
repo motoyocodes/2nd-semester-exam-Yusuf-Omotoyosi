@@ -110,7 +110,7 @@ const goToHome = () => router.push("/");
     <div
       class="max-w-3xl mx-auto p-6 rounded-[15px] border border-white/20 bg-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-[50px]"
     >
-      <TodoForm @onAddTodo="handleAddTodo" />
+      <TodoForm @add-todo="handleAddTodo" />
 
       <div class="mb-6 flex flex-wrap gap-4 items-center">
         <input
