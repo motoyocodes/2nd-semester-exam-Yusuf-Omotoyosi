@@ -1,12 +1,6 @@
-# settings for the main site build
 [build]
-  # The command Netlify executes to build your site
   command = "npm run build"
-  # Next.js outputs to .next, but the runtime handles this. 
-  # We can leave the publish directory unset or let the runtime manage it.
-  # If you want to be explicit, you can add it, but the Next.js runtime is smart.
-  # publish = ".next" 
+  publish = ".next" 
 
-# Enable the Next.js runtime (usually automatic, but good to be explicit)
-[plugins]
+[[plugins]]
   package = "@netlify/plugin-nextjs"
