@@ -1,3 +1,14 @@
+[build]
+  # The correct build command (runs inside the base directory)
+  command = "npm run build"
+  # The directory where the site output (dist) is found, relative to the base directory
+  publish = "dist"
+
+# Set the base directory for the entire project's build process
+[context.production]
+  base = "vuejs-migration"
+
+# Redirect rule for client-side routing (crucial for blank page fix)
 [[redirects]]
   from = "/*"
   to = "/index.html"
