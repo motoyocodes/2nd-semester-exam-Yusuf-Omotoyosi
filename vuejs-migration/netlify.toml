@@ -1,14 +1,10 @@
 [build]
-  # The correct build command (runs inside the base directory)
-  command = "npm run build"
-  # The directory where the site output (dist) is found, relative to the base directory
-  publish = "dist"
+  # The build command runs from the repository root
+  command = "npm install && npm run build --prefix vuejs-migration"
+  # The final output directory relative to the repository root
+  publish = "vuejs-migration/dist"
 
-# Set the base directory for the entire project's build process
-[context.production]
-  base = "vuejs-migration"
-
-# Redirect rule for client-side routing (crucial for blank page fix)
+# Fixes the blank page 404 issue for client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
