@@ -1,11 +1,11 @@
-[build]
-  # The build command runs from the repository root
-  command = "npm install && npm run build --prefix vuejs-migration"
-  # The final output directory relative to the repository root
-  publish = "vuejs-migration/dist"
+    [build]
+      # Run install/build in the correct subdirectory, but the output is now at the root.
+      command = "npm install --prefix vuejs-migration && npm run build --prefix vuejs-migration"
+      # The final output directory is now the root 'dist' folder.
+      publish = "dist"
 
-# Fixes the blank page 404 issue for client-side routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+    # Fixes the MIME type error for SPA client-side routing
+    [[redirects]]
+      from = "/*"
+      to = "/index.html"
+      status = 200
